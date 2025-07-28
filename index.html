@@ -1,1 +1,317 @@
-# Mohamed
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر انطلاقة - رفع جودة محتوى تيك توك</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony -->
+    <!-- Application Structure Plan: A single-page application with a clear, intuitive e-commerce layout. It features: 1) A sticky header for navigation. 2) A prominent hero section. 3) A dedicated products section displaying digital files. 4) Interactive modals for product details. 5) A section for accepted payment methods. 6) About and Contact sections. This structure was chosen to provide a familiar e-commerce user experience, allowing for easy browsing of products and quick access to essential information, optimizing for user understanding and purchasing flow. -->
+    <!-- Visualization & Content Choices: Report Info: Store name, specialty -> Goal: Brand identity -> Presentation: Header and Hero section. Report Info: Digital products for TikTok quality -> Goal: Showcase offerings -> Presentation: Product cards with image placeholders, title, price, and description. Interaction: Click card to open a detailed modal. Report Info: Payment methods -> Goal: Build trust -> Presentation: Icon list of payment options, now including bank transfer details. All elements are structured using HTML/CSS (Tailwind) and vanilla JavaScript for interactivity, confirming NO SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #F5F5F4; /* stone-100 */
+            color: #1C1917; /* stone-900 */
+            scroll-behavior: smooth;
+        }
+        .btn-primary {
+            @apply bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out;
+        }
+        .btn-secondary {
+            @apply bg-white text-indigo-600 font-bold py-3 px-6 rounded-lg border border-indigo-600 hover:bg-indigo-50 transition duration-300 ease-in-out;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #57534E;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-3xl font-bold text-indigo-600">انطلاقة</a>
+            <div class="flex space-x-4 space-x-reverse">
+                <a href="#hero" class="text-stone-600 hover:text-indigo-600 font-medium transition duration-200">الرئيسية</a>
+                <a href="#products" class="text-stone-600 hover:text-indigo-600 font-medium transition duration-200">المنتجات</a>
+                <a href="#about" class="text-stone-600 hover:text-indigo-600 font-medium transition duration-200">عنا</a>
+                <a href="#contact" class="text-stone-600 hover:text-indigo-600 font-medium transition duration-200">اتصل بنا</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-indigo-100 py-20 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-indigo-800 leading-tight mb-4">
+                انطلاقة: ارتقِ بمحتواك على تيك توك إلى مستوى جديد!
+            </h1>
+            <p class="text-lg md:text-xl text-indigo-600 mb-8 max-w-3xl mx-auto">
+                ملفات رقمية حصرية مصممة خصيصًا لرفع جودة فيديوهاتك وجذب المزيد من المشاهدين على تيك توك.
+            </p>
+            <a href="#products" class="btn-primary">اكتشف منتجاتنا</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-stone-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">منتجاتنا الرقمية</h2>
+            <p class="text-lg text-stone-600 text-center mb-12 max-w-2xl mx-auto">
+                ملفات رقمية مصممة خصيصًا لمساعدتك على تحسين جودة فيديوهاتك على تيك توك والحصول على أفضل النتائج.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 Card -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center p-6 text-center product-card cursor-pointer" data-product-id="product1">
+                    <img src="https://placehold.co/400x300/C7D2FE/4F46E5?text=Preset+Pack" alt="حزمة إعدادات تحسين جودة فيديو تيك توك" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-bold text-indigo-700 mb-2">حزمة إعدادات تحسين جودة فيديو تيك توك</h3>
+                    <p class="text-stone-600 mb-4">مجموعة من الإعدادات المسبقة الاحترافية لبرامج التعديل، مصممة لرفع دقة ووضوح فيديوهاتك على تيك توك بلمسة زر.</p>
+                    <span class="text-3xl font-extrabold text-indigo-600 mb-4">99.99 ر.س</span>
+                    <button class="btn-primary w-full">عرض التفاصيل</button>
+                </div>
+
+                <!-- Product 2 Card -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center p-6 text-center product-card cursor-pointer" data-product-id="product2">
+                    <img src="https://placehold.co/400x300/C7D2FE/4F46E5?text=Editing+Guide" alt="دليل تيك توك الشامل للتحرير المتقدم" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-bold text-indigo-700 mb-2">دليل تيك توك الشامل للتحرير المتقدم</h3>
+                    <p class="text-stone-600 mb-4">دليل إلكتروني مفصل خطوة بخطوة، يكشف أسرار التحرير المتقدمة لإنشاء فيديوهات جذابة وعالية الجودة.</p>
+                    <span class="text-3xl font-extrabold text-indigo-600 mb-4">49.99 ر.س</span>
+                    <button class="btn-primary w-full">عرض التفاصيل</button>
+                </div>
+
+                <!-- PC Quality Product Card -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center p-6 text-center product-card cursor-pointer" data-product-id="tiktok_pc_quality">
+                    <img src="https://placehold.co/400x300/C7D2FE/4F46E5?text=PC+Quality" alt="جودة تيك توك للبي سي" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-bold text-indigo-700 mb-2">جودة تيك توك للبي سي</h3>
+                    <p class="text-stone-600 mb-2">ملف إعدادات احترافي لرفع جودة فيديوهات تيك توك عند التعديل على الكمبيوتر.</p>
+                    <div class="flex items-center justify-center mb-4">
+                        <span class="text-xl text-stone-500 line-through ml-2">99 ر.س</span>
+                        <span class="text-3xl font-extrabold text-red-600">69 ر.س</span>
+                    </div>
+                    <button class="btn-primary w-full">عرض التفاصيل</button>
+                </div>
+
+                <!-- Android Quality Product Card -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center p-6 text-center product-card cursor-pointer" data-product-id="tiktok_android_quality">
+                    <img src="https://placehold.co/400x300/C7D2FE/4F46E5?text=Android+Quality" alt="جودة تيك توك للاندرويد" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-bold text-indigo-700 mb-2">جودة تيك توك للاندرويد</h3>
+                    <p class="text-stone-600 mb-2">ملف إعدادات احترافي لرفع جودة فيديوهات تيك توك عند التعديل على أجهزة الأندرويد.</p>
+                    <div class="flex items-center justify-center mb-4">
+                        <span class="text-xl text-stone-500 line-through ml-2">99 ر.س</span>
+                        <span class="text-3xl font-extrabold text-red-600">69 ر.س</span>
+                    </div>
+                    <button class="btn-primary w-full">عرض التفاصيل</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section id="payment-methods" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">طرق الدفع المتاحة</h2>
+            <p class="text-lg text-stone-600 mb-12 max-w-2xl mx-auto">
+                نحن ندعم طرق دفع آمنة ومريحة لضمان تجربة تسوق سلسة.
+            </p>
+            <div class="flex flex-wrap justify-center items-center gap-8 text-5xl text-stone-700 mb-8">
+                <span>💳</span> <!-- Credit Card -->
+                <span></span> <!-- Apple Pay -->
+                <span>🅿️</span> <!-- Placeholder for Payment Gateway (e.g., PayPal) -->
+                <span>🇸🇦</span> <!-- Mada (Saudi specific) -->
+                <span>🌐</span> <!-- General Online Payment -->
+            </div>
+            <div class="bg-indigo-50 p-6 rounded-lg max-w-xl mx-auto text-center">
+                <h3 class="text-2xl font-bold text-indigo-700 mb-3">تحويل بنكي</h3>
+                <p class="text-stone-700 mb-2">يمكنك الدفع عن طريق التحويل البنكي إلى الحساب التالي:</p>
+                <p class="text-xl font-semibold text-indigo-600 break-all">IBAN: SA84 8000 0283 6080 1600 8771</p>
+                <p class="text-sm text-stone-500 mt-2">يرجى إرسال إيصال التحويل إلى بريدنا الإلكتروني لتأكيد طلبك.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-stone-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">عن انطلاقة</h2>
+            <p class="text-lg text-stone-600 max-w-3xl mx-auto">
+                في انطلاقة، نؤمن بأن كل صانع محتوى على تيك توك يستحق أن تبرز أعماله. مهمتنا هي تزويدك بالأدوات الرقمية التي تحتاجها لرفع جودة فيديوهاتك وتحقيق أقصى تأثير. نحن ملتزمون بتقديم منتجات عالية الجودة تدعم إبداعك وتساعدك على الوصول إلى جمهور أوسع.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">اتصل بنا</h2>
+            <p class="text-lg text-stone-600 mb-8 max-w-2xl mx-auto">
+                لأي استفسارات أو دعم، لا تتردد في التواصل معنا. فريقنا مستعد دائمًا لمساعدتك.
+            </p>
+            <div class="flex flex-col items-center space-y-4">
+                <p class="text-xl text-indigo-700 font-semibold">البريد الإلكتروني: <a href="mailto:info@intilaqa.com" class="text-indigo-600 hover:underline">info@intilaqa.com</a></p>
+                <p class="text-xl text-indigo-700 font-semibold">
+                    واتساب: <a href="https://wa.me/966530369481" class="text-indigo-600 hover:underline" target="_blank">+966530369481</a>
+                </p>
+                <div class="flex space-x-6 space-x-reverse text-4xl text-stone-700">
+                    <span>📸</span> <!-- Instagram -->
+                    <span>🐦</span> <!-- Twitter -->
+                    <span>👍</span> <!-- Facebook -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-800 text-white py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2024 انطلاقة. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal-overlay hidden">
+        <div class="modal-content w-full md:w-2/3 lg:w-1/2">
+            <span class="close-btn" id="close-modal">&times;</span>
+            <div class="flex flex-col md:flex-row gap-6 items-center">
+                <img id="modal-product-image" src="" alt="Product Image" class="w-full md:w-1/2 h-64 object-cover rounded-md">
+                <div class="md:w-1/2 text-center md:text-right">
+                    <h3 id="modal-product-title" class="text-3xl font-bold text-indigo-700 mb-3"></h3>
+                    <p id="modal-product-description" class="text-stone-600 mb-4"></p>
+                    <div id="modal-product-price-container" class="flex items-center justify-center md:justify-end mb-4">
+                        <span id="modal-product-original-price" class="text-xl text-stone-500 line-through ml-2 hidden"></span>
+                        <span id="modal-product-current-price" class="text-3xl font-extrabold text-indigo-600"></span>
+                    </div>
+                    <button class="btn-primary w-full" id="buy-now-btn">شراء الآن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const products = {
+            product1: {
+                title: 'حزمة إعدادات تحسين جودة فيديو تيك توك',
+                description: 'مجموعة شاملة من الإعدادات المسبقة الاحترافية المتوافقة مع برامج التعديل الرائدة مثل Adobe Premiere Pro وDaVinci Resolve. مصممة خصيصًا لرفع دقة ووضوح فيديوهاتك على تيك توك، تقليل الضوضاء، وتحسين الألوان بلمسة زر واحدة. تتضمن إرشادات مفصلة لسهولة الاستخدام.',
+                price: '99.99 ر.س',
+                originalPrice: null, // No discount for this product
+                image: 'https://placehold.co/800x600/C7D2FE/4F46E5?text=Preset+Pack+Details'
+            },
+            product2: {
+                title: 'دليل تيك توك الشامل للتحرير المتقدم',
+                description: 'دليل إلكتروني مفصل خطوة بخطوة، يكشف أسرار التحرير المتقدمة لإنشاء فيديوهات جذابة وعالية الجودة على تيك توك. يغطي الدليل تقنيات القص الاحترافية، إضافة المؤثرات البصرية والصوتية، تصحيح الألوان المتقدم، وتحسين الصوت، بالإضافة إلى نصائح لزيادة التفاعل والمشاهدات.',
+                price: '49.99 ر.س',
+                originalPrice: null, // No discount for this product
+                image: 'https://placehold.co/800x600/C7D2FE/4F46E5?text=Editing+Guide+Details'
+            },
+            tiktok_pc_quality: {
+                title: 'جودة تيك توك للبي سي',
+                description: 'ملف إعدادات احترافي مصمم خصيصًا لرفع جودة فيديوهات تيك توك عند التعديل على الكمبيوتر. يتضمن إعدادات محسّنة للوضوح، تقليل الضوضاء، وتصحيح الألوان لضمان أفضل مظهر لمحتواك.',
+                price: '69 ر..س',
+                originalPrice: '99 ر.س', // Original price for discount
+                image: 'https://placehold.co/800x600/C7D2FE/4F46E5?text=PC+Quality+Details'
+            },
+            tiktok_android_quality: {
+                title: 'جودة تيك توك للاندرويد',
+                description: 'ملف إعدادات احترافي مصمم خصيصًا لرفع جودة فيديوهات تيك توك عند التعديل على أجهزة الأندرويد. يتضمن إعدادات محسّنة للوضوح، تقليل الضوضاء، وتصحيح الألوان لضمان أفضل مظهر لمحتواك على الجوال.',
+                price: '69 ر.س',
+                originalPrice: '99 ر.س', // Original price for discount
+                image: 'https://placehold.co/800x600/C7D2FE/4F46E5?text=Android+Quality+Details'
+            }
+        };
+
+        const productCards = document.querySelectorAll('.product-card');
+        const modal = document.getElementById('product-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const modalProductImage = document.getElementById('modal-product-image');
+        const modalProductTitle = document.getElementById('modal-product-title');
+        const modalProductDescription = document.getElementById('modal-product-description');
+        const modalProductCurrentPrice = document.getElementById('modal-product-current-price');
+        const modalProductOriginalPrice = document.getElementById('modal-product-original-price');
+        const buyNowBtn = document.getElementById('buy-now-btn');
+
+        productCards.forEach(card => {
+            card.addEventListener('click', (event) => {
+                const productId = card.getAttribute('data-product-id');
+                const product = products[productId];
+
+                if (product) {
+                    modalProductImage.src = product.image;
+                    modalProductTitle.textContent = product.title;
+                    modalProductDescription.textContent = product.description;
+                    modalProductCurrentPrice.textContent = product.price;
+
+                    if (product.originalPrice) {
+                        modalProductOriginalPrice.textContent = product.originalPrice;
+                        modalProductOriginalPrice.classList.remove('hidden');
+                        modalProductCurrentPrice.classList.remove('text-indigo-600');
+                        modalProductCurrentPrice.classList.add('text-red-600'); // Highlight discounted price
+                    } else {
+                        modalProductOriginalPrice.classList.add('hidden');
+                        modalProductCurrentPrice.classList.remove('text-red-600');
+                        modalProductCurrentPrice.classList.add('text-indigo-600'); // Default color if no discount
+                    }
+                    modal.classList.remove('hidden');
+                }
+            });
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+
+        buyNowBtn.addEventListener('click', () => {
+            // In a real application, this would initiate a payment process.
+            // For this example, we'll just show an alert.
+            alert('تمت محاكاة عملية الشراء! (هذه نسخة تجريبية)');
+            modal.classList.add('hidden');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
